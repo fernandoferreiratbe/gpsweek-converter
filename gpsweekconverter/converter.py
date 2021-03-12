@@ -10,7 +10,7 @@ class Converter:
         return int(gps_week)
 
     # noinspection PyMethodMayBeStatic
-    def convert_gps_week_to_julian_date(self, gps_week: int, day_of_week: int):
+    def convert_gps_week_to_julian_date(self, gps_week: int, day_of_week: int = 0):
         if day_of_week not in range(0, 7):
             raise ValueError('Day of week out of range 0-6.')
 
