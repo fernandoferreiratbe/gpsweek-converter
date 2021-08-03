@@ -27,8 +27,15 @@ class TestConverter(unittest.TestCase):
 
         self.assertEqual(first=2459284.0, second=result, msg='Conversion failed. Julian date is different from expected.')
 
-    def test_given_incorrect_parameter_raise_exception_during_conversion_gps_week_to_julian_date(self):
+    def test_given_incorrect_parameter_value_for_day_of_week_raise_exception_for_conversion_gps_week_to_julian_date(self):
         gps_week = 2148
         day_of_week = -1
         with self.assertRaises(ValueError):
             self.converter.convert_gps_week_to_julian_date(gps_week=gps_week, day_of_week=day_of_week)
+
+    def test_given_incorrect_parameter_value_for_gps_week_raise_exception_for_conversion_gps_week_to_julian_date(self):
+        gps_week = 0
+        day_of_week = -1
+        with self.assertRaises(ValueError):
+            self.converter.convert_gps_week_to_julian_date(gps_week=gps_week, day_of_week=day_of_week)
+
